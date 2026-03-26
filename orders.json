@@ -4,6 +4,7 @@
     "customer": "Alice Smith",
     "city": "New York",
     "status": "Delayed",
+    "apology": "Hi Alice Smith, your order to New York is delayed due to overcast clouds. We appreciate your patience!",
     "weather_main": "Clouds",
     "weather_description": "overcast clouds",
     "apology_message": "Hi Alice Smith, your order to New York is delayed due to overcast clouds. We appreciate your patience!"
@@ -13,6 +14,7 @@
     "customer": "Bob Jones",
     "city": "Mumbai",
     "status": "Delayed",
+    "apology": "Hi Bob Jones, your order to Mumbai is delayed due to smoke. We appreciate your patience!",
     "weather_main": "Smoke",
     "weather_description": "smoke",
     "apology_message": "Hi Bob Jones, your order to Mumbai is delayed due to smoke. We appreciate your patience!"
@@ -22,6 +24,7 @@
     "customer": "Charlie Green",
     "city": "London",
     "status": "Delayed",
+    "apology": "Hi Charlie Green, your order to London is delayed due to few clouds. We appreciate your patience!",
     "weather_main": "Clouds",
     "weather_description": "few clouds",
     "apology_message": "Hi Charlie Green, your order to London is delayed due to few clouds. We appreciate your patience!"

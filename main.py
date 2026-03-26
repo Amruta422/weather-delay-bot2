@@ -114,8 +114,9 @@ async def process_order(
         payload = await fetch_weather_async(city, api_key)
         weather_main, weather_description = extract_weather_fields(payload)
         print("CHECK:", weather_main)
-    except Exception as error:
-        return None, f"Order {order_id} ({city}): {error}"
+    except Exception:
+    # Silently skip invalid cities without printing an error
+     return None, None
 
     order["weather_main"] = weather_main
     order["weather_description"] = weather_description
