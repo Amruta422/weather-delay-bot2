@@ -1,3 +1,4 @@
+
 import asyncio
 import json
 import os
@@ -12,7 +13,7 @@ from urllib.request import urlopen
 BASE_DIR = Path(__file__).resolve().parent
 ORDERS_PATH = BASE_DIR / "orders.json"
 ENV_PATH = BASE_DIR / ".env"
-DELAY_WEATHER_TYPES = {"Rain", "Snow", "Extreme"}
+DELAY_WEATHER_TYPES = {"Rain", "Snow", "Extreme", "Clouds", "Smoke"}
 API_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
@@ -77,7 +78,8 @@ def fetch_weather(city: str, api_key: str) -> Dict[str, Any]:
 
 
 async def fetch_weather_async(city: str, api_key: str) -> Dict[str, Any]:
-    return await asyncio.to_thread(fetch_weather, city, api_key)
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, fetch_weather, city, api_key)
 
 
 def extract_weather_fields(payload: Dict[str, Any]) -> Tuple[str, str]:
@@ -111,13 +113,14 @@ async def process_order(
     try:
         payload = await fetch_weather_async(city, api_key)
         weather_main, weather_description = extract_weather_fields(payload)
+        print("CHECK:", weather_main)
     except Exception as error:
         return None, f"Order {order_id} ({city}): {error}"
 
     order["weather_main"] = weather_main
     order["weather_description"] = weather_description
 
-    if weather_main in DELAY_WEATHER_TYPES:
+    if weather_main.strip().title() in DELAY_WEATHER_TYPES:
         order["status"] = "Delayed"
         order["apology_message"] = generate_weather_aware_apology(
             customer, city, weather_main, weather_description

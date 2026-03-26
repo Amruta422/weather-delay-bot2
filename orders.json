@@ -3,19 +3,28 @@
     "order_id": "1001",
     "customer": "Alice Smith",
     "city": "New York",
-    "status": "Pending"
+    "status": "Delayed",
+    "weather_main": "Clouds",
+    "weather_description": "overcast clouds",
+    "apology_message": "Hi Alice Smith, your order to New York is delayed due to overcast clouds. We appreciate your patience!"
   },
   {
     "order_id": "1002",
     "customer": "Bob Jones",
     "city": "Mumbai",
-    "status": "Pending"
+    "status": "Delayed",
+    "weather_main": "Smoke",
+    "weather_description": "smoke",
+    "apology_message": "Hi Bob Jones, your order to Mumbai is delayed due to smoke. We appreciate your patience!"
   },
   {
     "order_id": "1003",
     "customer": "Charlie Green",
     "city": "London",
-    "status": "Pending"
+    "status": "Delayed",
+    "weather_main": "Clouds",
+    "weather_description": "few clouds",
+    "apology_message": "Hi Charlie Green, your order to London is delayed due to few clouds. We appreciate your patience!"
   },
   {
     "order_id": "1004",
